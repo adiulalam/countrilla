@@ -17,6 +17,10 @@ const Region = () => {
 		return <div>...Error...</div>;
 	}
 
+	if (isLoading) {
+		return <div>...loading...</div>;
+	}
+
 	return (
 		<div className="bg-[#160440] min-w-[320px]">
 			<Search data={data} />

@@ -3,6 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { region } from "@/utils/constMap";
 import { useRouter } from "next/router";
+import _ from "lodash";
 
 export default function Autocomplete() {
 	const router = useRouter();
