@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const Card = (props) => {
+export const RegionCard = (props) => {
 	return (
 		<div className="cardAnimation flex flex-col md:h-48 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl bg-[#08C952]">
 			{

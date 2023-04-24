@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const Input = ({ items, setFilterData }) => {
-	const [query, setQuery] = useState("");
-
+export const Input = ({ items, setFilterData, query, setQuery }) => {
 	useEffect(() => {
 		const filteredItem =
 			query === ""
