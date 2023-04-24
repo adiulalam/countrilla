@@ -1,8 +1,18 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export const Card = (props) => {
 	return (
-		<div className="cardAnimation flex flex-col md:h-48 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl bg-[#08C952]">
+		<Link
+			href={{
+				pathname: `/country/${props.name.common}`,
+				query: {
+					cca2: props.cca2,
+					cca3: props.cca3,
+				},
+			}}
+			as={`/country/${props.name.common}`}
+			className="cardAnimation flex flex-col md:h-48 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl bg-[#08C952]"
+		>
 			{
 				// eslint-disable-next-line @next/next/no-img-element
 				<img
@@ -35,6 +45,6 @@ export const Card = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
