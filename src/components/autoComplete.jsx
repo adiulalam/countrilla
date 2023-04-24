@@ -27,6 +27,7 @@ export default function Autocomplete() {
 		if (!_.isEmpty(region)) {
 			router.push(`/region/${region.value}`);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const onChangeRegion = (selectedRegion) => {

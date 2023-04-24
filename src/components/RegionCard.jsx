@@ -1,40 +1,36 @@
-import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export const RegionCard = (props) => {
+export const RegionCard = ({ region }) => {
+	const router = useRouter();
+
+	useEffect(() => {
+		const region = JSON.parse(localStorage.getItem("region")) ?? {};
+
+		if (!_.isEmpty(region)) {
+			router.push(`/region/${region.value}`);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const onClickRegion = () => {
+		window.localStorage.setItem("region", JSON.stringify(region));
+		router.push(`/region/${region.value}`);
+	};
+
 	return (
-		<div className="cardAnimation flex flex-col md:h-48 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl bg-[#08C952]">
-			{
-				// eslint-disable-next-line @next/next/no-img-element
-				<img
-					className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-64 md:rounded-none md:rounded-l-lg"
-					src={props?.flags.png ?? props?.flags.svg}
-					alt={props?.name?.common}
-					loading="lazy"
-				/>
-			}
-			<div className="flex flex-col justify-between p-4 leading-normal w-full md:w-96">
-				<h5 className="mb-2 text-3xl font-bold tracking-tight text-black">
-					{props?.name?.common}
+		<button
+			onClick={onClickRegion}
+			className="cardAnimation flex flex-col md:h-56 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 "
+		>
+			<div
+				style={{ backgroundImage: `url(${region.src})` }}
+				className="flex items-center bg-cover flex-col p-4 leading-normal w-full md:w-56 h-72 md:h-full "
+			>
+				<h5 className="p-2 text-3xl font-bold tracking-tight text-black backdrop-blur-xl">
+					{region.name}
 				</h5>
-				<div className="flex flex-row items-center">
-					{props?.capital?.length > 0 && (
-						<h3 className="mb-2 text-lg tracking-tight text-black">{`Capital: ${props?.capital?.[0]}`}</h3>
-					)}
-				</div>
-				<div>
-					<div className="flex flex-row items-center justify-between mb-2 gap-2">
-						<h3 className="text-sm tracking-tight text-black">
-							<b>Country Code:</b> {props?.cca2 ?? "unknown"}
-						</h3>
-						<h3 className="text-sm tracking-tight text-black">
-							<b>Population:</b> {props?.population ?? "unknown"}
-						</h3>
-						<h3 className="text-sm tracking-tight text-black">
-							<b>UN Member:</b> {`${props?.unMember}` ?? "unknown"}
-						</h3>
-					</div>
-				</div>
 			</div>
-		</div>
+		</button>
 	);
 };

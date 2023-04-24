@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ["flagcdn.com"],
+		domains: ["flagcdn.com", "https://upload.wikimedia.org"],
 	},
 	reactStrictMode: true,
 };

@@ -15,6 +15,7 @@ export const Input = ({ items, setFilterData, query, setQuery }) => {
 				  );
 
 		setFilterData(query === "" ? [] : filteredItem);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);
 
 	return (
