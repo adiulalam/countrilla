@@ -23,11 +23,6 @@ export default function Autocomplete() {
 	useEffect(() => {
 		const region = JSON.parse(localStorage.getItem("region")) ?? {};
 		setSelectedRegion(region);
-
-		if (!_.isEmpty(region)) {
-			router.push(`/region/${region.value}`);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const onChangeRegion = (selectedRegion) => {
