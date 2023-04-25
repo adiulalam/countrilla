@@ -5,6 +5,7 @@ import { fetcher } from "@/services/fetcher";
 import _ from "lodash";
 import { Search } from "@/components/search";
 import { CountryCard } from "@/components/countryCard";
+import Head from "next/head";
 
 const Country = () => {
 	const router = useRouter();
@@ -41,7 +42,10 @@ const Country = () => {
 	}
 
 	return (
-		<>
+		<div className="bg-[#160440] min-w-[320px]">
+			<Head>
+				<title>Countrilla {country ? `- ${country.toUpperCase()}` : ""}</title>
+			</Head>
 			<Search
 				data={regionData}
 				filterData={filterData}
@@ -55,7 +59,7 @@ const Country = () => {
 					<CountryCard {...data[0]} />{" "}
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 

@@ -63,7 +63,7 @@ export default function Autocomplete() {
 									key={index}
 									className={({ active }) =>
 										`relative cursor-default select-none py-2 pl-10 pr-4 ${
-											active ? "bg-teal-600 text-white" : "text-gray-900"
+											active ? "bg-[#08C952] text-white" : "text-gray-900"
 										}`
 									}
 									value={item}

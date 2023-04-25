@@ -1,6 +1,7 @@
 import { Card } from "@/components/card";
 import { Search } from "@/components/search";
 import { fetcher } from "@/services/fetcher";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
@@ -30,6 +31,9 @@ const Region = () => {
 
 	return (
 		<div className="bg-[#160440] min-w-[320px]">
+			<Head>
+				<title>Countrilla {region ? `- ${region.toUpperCase()}` : ""}</title>
+			</Head>
 			<Search
 				data={data}
 				filterData={filterData}

@@ -22,7 +22,7 @@ export const Input = ({ items, setFilterData, query, setQuery }) => {
 		<div className="relative">
 			<div className="absolute flex items-center ml-2 h-full">
 				<svg
-					className="w-4 h-4 fill-current text-primary-gray-dark"
+					className="w-4 h-4 fill-black text-primary-gray-dark"
 					viewBox="0 0 16 16"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export const Input = ({ items, setFilterData, query, setQuery }) => {
 				value={query}
 				type="text"
 				placeholder="Search by country name..."
-				className="px-8 py-3 w-full rounded-md bg-[#d2e054] border-transparent focus:border-gray-400 placeholder-gray-500 focus:bg-[#EDCF6B] focus:ring-0 text-sm"
+				className="px-8 py-3 w-full rounded-md bg-white border-transparent focus:border-gray-400 placeholder-gray-500 focus:bg-gray-400 text-black focus:text-white focus:ring-0 text-sm"
 			/>
 		</div>
 	);
