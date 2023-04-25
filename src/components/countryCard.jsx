@@ -1,22 +1,10 @@
-import Link from "next/link";
-
-export const Card = (props) => {
+export const CountryCard = (props) => {
 	return (
-		<Link
-			href={{
-				pathname: `/country/${props.name.common}`,
-				query: {
-					cca2: props.cca2,
-					cca3: props.cca3,
-				},
-			}}
-			as={`/country/${props.name.common}`}
-			className="cardAnimation flex flex-col md:h-48 justify-around min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-xl bg-[#08C952]"
-		>
+		<div className="cardAnimation flex flex-col justify-around md:h-56 min-w-full md:min-w-min border rounded-lg shadow-md md:flex-row md:max-w-2xl bg-[#08C952]">
 			{
 				// eslint-disable-next-line @next/next/no-img-element
 				<img
-					className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-64 md:rounded-none md:rounded-l-lg"
+					className="object-cover w-full rounded-t-lg h-96 md:h-full md:w-72 md:rounded-none md:rounded-l-lg"
 					src={props?.flags.png ?? props?.flags.svg}
 					alt={props?.name?.common}
 					loading="lazy"
@@ -47,6 +35,6 @@ export const Card = (props) => {
 					</div>
 				</div>
 			</div>
-		</Link>
+		</div>
 	);
 };

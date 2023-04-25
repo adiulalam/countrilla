@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { fetcher } from "@/services/fetcher";
 import _ from "lodash";
 import { Search } from "@/components/search";
+import { CountryCard } from "@/components/countryCard";
 
 const Country = () => {
 	const router = useRouter();
@@ -40,14 +41,21 @@ const Country = () => {
 	}
 
 	return (
-		<Search
-			data={regionData}
-			filterData={filterData}
-			setFilterData={setFilterData}
-			query={query}
-			setQuery={setQuery}
-			showDropDown={true}
-		/>
+		<>
+			<Search
+				data={regionData}
+				filterData={filterData}
+				setFilterData={setFilterData}
+				query={query}
+				setQuery={setQuery}
+				showDropDown={true}
+			/>
+			{data?.length > 0 && (
+				<div className="flex justify-center items-center">
+					<CountryCard {...data[0]} />{" "}
+				</div>
+			)}
+		</>
 	);
 };
 
