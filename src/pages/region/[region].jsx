@@ -1,4 +1,5 @@
 import { Card } from "@/components/card";
+import { Error } from "@/components/error";
 import { Search } from "@/components/search";
 import { CardSkeleton } from "@/components/skeletons/cardSkeleton";
 import { fetcher } from "@/services/fetcher";
@@ -23,7 +24,7 @@ const Region = () => {
 	}, [data]);
 
 	if (error) {
-		return <div>...Error...</div>;
+		return <Error />;
 	}
 
 	if (isLoading) {

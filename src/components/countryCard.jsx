@@ -12,7 +12,7 @@ export const CountryCard = (props) => {
 					loading="lazy"
 				/>
 			}
-			<div className="flex flex-col justify-between p-4 leading-normal w-full md:w-96">
+			<div className="flex flex-col justify-between p-4 leading-normal w-full md:w-[45rem]">
 				<h5 className="text-3xl font-bold tracking-tight text-black">
 					{props?.name?.common} ({props?.flag})
 				</h5>

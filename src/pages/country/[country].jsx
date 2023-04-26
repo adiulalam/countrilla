@@ -7,6 +7,7 @@ import { Search } from "@/components/search";
 import { CountryCard } from "@/components/countryCard";
 import Head from "next/head";
 import { CardSkeleton } from "@/components/skeletons/cardSkeleton";
+import { Error } from "@/components/error";
 
 const Country = () => {
 	const router = useRouter();
@@ -35,11 +36,11 @@ const Country = () => {
 	}, []);
 
 	if (error || regionError) {
-		return <div>...Error...</div>;
+		return <Error />;
 	}
 
 	if (isLoading) {
-		return <CardSkeleton array={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />;
+		return <CardSkeleton array={[1]} />;
 	}
 
 	return (
