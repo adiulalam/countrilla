@@ -35,7 +35,7 @@ export const Search = ({
 									}}
 									as={`/country/${country.name.common}`}
 									key={index}
-									className="px-8 py-3 w-full rounded-md bg-[#160440] border-transparent focus:border-gray-400 placeholder-gray-500 focus:bg-gray-400 focus:ring-0 text-sm"
+									className="px-8 py-3 w-full rounded-md bg-[#160440] text-white hover:text-gray-300 border-transparent focus:border-gray-400 placeholder-gray-500 focus:bg-gray-400 focus:ring-0 text-sm"
 								>
 									{country.name.common}
 								</Link>

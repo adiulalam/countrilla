@@ -6,6 +6,7 @@ import _ from "lodash";
 import { Search } from "@/components/search";
 import { CountryCard } from "@/components/countryCard";
 import Head from "next/head";
+import { CardSkeleton } from "@/components/skeletons/cardSkeleton";
 
 const Country = () => {
 	const router = useRouter();
@@ -38,13 +39,15 @@ const Country = () => {
 	}
 
 	if (isLoading) {
-		return <div>...loading...</div>;
+		return <CardSkeleton array={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />;
 	}
 
 	return (
 		<div className="bg-[#160440] min-w-[320px]">
 			<Head>
-				<title>Countrilla {country ? `- ${country.toUpperCase()}` : ""}</title>
+				<title>
+					{data?.length > 0 ? `${data[0].name?.common} ${data[0]?.flag}` : "Countrilla"}
+				</title>
 			</Head>
 			<Search
 				data={regionData}

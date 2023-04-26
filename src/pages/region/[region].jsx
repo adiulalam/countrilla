@@ -1,5 +1,6 @@
 import { Card } from "@/components/card";
 import { Search } from "@/components/search";
+import { CardSkeleton } from "@/components/skeletons/cardSkeleton";
 import { fetcher } from "@/services/fetcher";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -26,7 +27,7 @@ const Region = () => {
 	}
 
 	if (isLoading) {
-		return <div>...loading...</div>;
+		return <CardSkeleton array={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />;
 	}
 
 	return (
@@ -44,7 +45,9 @@ const Region = () => {
 			<div className="flex flex-row flex-wrap items-center justify-evenly p-5 gap-5">
 				{query.length > 0
 					? filterData?.map((country, index) => <Card {...country} key={index} />)
-					: data?.map((country, index) => <Card {...country} key={index} />)}
+					: data
+							?.filter((item) => item.cca2 !== "NZ")
+							?.map((country, index) => <Card {...country} key={index} />)}
 			</div>
 		</div>
 	);
